@@ -8,7 +8,7 @@ app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 led1 = 21 
 led2 = 20
-sensor = adafruit_dht.DHT22(board.D23)
+sensor = adafruit_dht.DHT22(board.D4, use_pulseio=False)
  
 # Set each pin as an output and make it low:
 GPIO.setup(led1, GPIO.OUT)
