@@ -42,11 +42,15 @@ def action(pin, action):
       
       temp = sensor.temperature
       humi = sensor.humidity
-      
-      humi = '{0:0.1f}' .format(humi)
-      temp = '{0:0.1f}' .format(temp)
-      temperature = 'Temperature: ' + temp 
-      humidity =  'Humidity: ' + humi
+      try:
+        humi = '{0:0.1f}' .format(humi)
+        temp = '{0:0.1f}' .format(temp)
+        temperature = 'Temperature: ' + temp 
+        humidity =  'Humidity: ' + humi
+      except:
+        temperature = 'Non Letto'
+        humidity =  'Non Letto'
+         
  
    templateData = {
    'temperature' : temperature,
