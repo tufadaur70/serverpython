@@ -16,9 +16,9 @@
 
 <div align="center">
   <div class="column">
-   <h3 style="color: blue">Device 1
-      <button style="color: rgb(0, 255, 0)" onclick="accendiCaldaia()" ACCENDI></button>
-      <button style="color: rgb(255, 0, 0)" onclick="spegniCaldaia()" SPEGNI></button>
+   <h3 style="color: blue">CALDAIA
+      <button type="button" color: rgb(0, 255, 0) onclick="accendiCaldaia()">ACCENDI</button>
+      <button style="color: rgb(255, 0, 0)" onclick="spegniCaldaia()">SPEGNI</button>
    </h3>
 </div>
 </body>
@@ -27,8 +27,9 @@
    function accendiCaldaia() {
       $.ajax({
          type:"POST",
-         url: "{{ url_for('caldaia')}}",
+         url: "/caldaia",
          data: {"stato" : "ON"}
+         
       })
    }
 
@@ -36,17 +37,16 @@
 
       $.ajax({
          type:"POST",
-         url: "{{ url_for('caldaia')}}",
+         url: "/caldaia",
          data: {"stato" : "OFF"}
       })
 
    }
 
    function leggiTemperatura() {
-
       $.ajax({
          type:"POST",
-         url: "{{ url_for('temperatura')}}",
+         url: "/temperatura",
          success : function(response){
             document.getElementById("temp").innerHTML ="PEPPE" + response.temperature ;
          }

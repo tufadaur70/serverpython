@@ -24,6 +24,7 @@ def main():
  
 @app.route("/caldaia" , methods=['POST'] )
 def caldaia():
+  print("Bottone Premuto")
   if request.method == 'POST':
       print(request.form)
       if request.form.get('stato') == 'ON':
@@ -34,7 +35,8 @@ def caldaia():
 
 
 @app.route('/temperatura')
-def temperatura():   
+def temperatura():
+   print("Temperatura Richiesta")   
    temperature = ''
    humidity = ''
    
@@ -51,7 +53,7 @@ def temperatura():
          
  
    
- 
+   print("Temperatura :" + temperature) 
    return (temperature , 201)
  
 if __name__ == "__main__":
