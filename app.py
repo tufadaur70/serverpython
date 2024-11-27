@@ -34,20 +34,21 @@ def caldaia():
       return('', 204)
 
 
-@app.route('/temperatura')
+@app.route('/temperatura' ,methods=['POST'])
 def temperatura():
-   print("Temperatura Richiesta")   
-   temperature = ''
-   humidity = ''
+   print("Temperatura Richiesta")  
+   if request.method == 'POST': 
+    temperature = ''
+    humidity = ''
    
-   temp = sensor.temperature
-   humi = sensor.humidity
-   try:
+    temp = sensor.temperature
+    humi = sensor.humidity
+    try:
         humi = '{0:0.1f}' .format(humi)
         temp = '{0:0.1f}' .format(temp)
         temperature = 'Temperature: ' + temp 
         humidity =  'Humidity: ' + humi
-   except:
+    except:
         temperature = 'Non Letto'
         humidity =  'Non Letto'
          
