@@ -39,7 +39,7 @@ def action(pin, action):
       GPIO.output(led2, GPIO.LOW)
  
    if pin == "dhtpin" and action == "get":
-      humi, temp = dht.read_retry(dht.DHT11, DHT11_pin)  # Reading humidity and temperature
+      
       temp = sensor.temperature
       humi = sensor.humidity
       
