@@ -1,14 +1,8 @@
-# Complete Project Details: https://RandomNerdTutorials.com/raspberry-pi-dht11-dht22-python/
-# Based on Adafruit_CircuitPython_DHT Library Example
-
 import time
-import board
-import adafruit_dht
+import board # type: ignore
+import adafruit_dht # type: ignore
 
-# Sensor data pin is connected to GPIO 4
 sensor = adafruit_dht.DHT22(board.D4, use_pulseio=False)
-# Uncomment for DHT11
-#sensor = adafruit_dht.DHT11(board.D4)
 
 while True:
     try:
