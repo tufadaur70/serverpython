@@ -1,2 +1,0 @@
-# serverpython
- serve per raspberry
