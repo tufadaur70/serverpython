@@ -1,13 +1,14 @@
 from flask import Flask, render_template
 import RPi.GPIO as GPIO
-import Adafruit_DHT as dht
+import board
+import adafruit_dht
  
 app = Flask(__name__)
  
 GPIO.setmode(GPIO.BCM)
 led1 = 21 
 led2 = 20
-DHT11_pin = 23
+sensor = adafruit_dht.DHT22(board.D23)
  
 # Set each pin as an output and make it low:
 GPIO.setup(led1, GPIO.OUT)
@@ -39,6 +40,9 @@ def action(pin, action):
  
    if pin == "dhtpin" and action == "get":
       humi, temp = dht.read_retry(dht.DHT11, DHT11_pin)  # Reading humidity and temperature
+      temp = sensor.temperature
+      humi = sensor.humidity
+      
       humi = '{0:0.1f}' .format(humi)
       temp = '{0:0.1f}' .format(temp)
       temperature = 'Temperature: ' + temp 
