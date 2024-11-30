@@ -46,7 +46,7 @@ def temperatura():
     try:
         humi = '{0:0.1f}' .format(humi)
         temp = '{0:0.1f}' .format(temp)
-        temperature = 'Temperature: ' + temp 
+        temperature = 'Temperatura: ' + temp 
         humidity =  'Humidity: ' + humi
     except:
         temperature = 'Non Letto'
