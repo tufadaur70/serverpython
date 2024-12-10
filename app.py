@@ -1,14 +1,13 @@
 from flask import Flask, render_template  , request # type: ignore
 import RPi.GPIO as GPIO # type: ignore
 import time
-import board # type: ignore
-import adafruit_dht # type: ignore
+
  
 app = Flask(__name__)
  
 GPIO.setmode(GPIO.BCM)
 
-sensor = adafruit_dht.DHT22(board.D4, use_pulseio=False)
+
  
 # Set each pin as an output and make it low:
 
@@ -41,17 +40,7 @@ def temperatura():
     temperature = ''
     humidity = ''
    
-    temp = sensor.temperature
-    humi = sensor.humidity
-    try:
-        humi = '{0:0.1f}' .format(humi)
-        temp = '{0:0.1f}' .format(temp)
-        temperature = 'Temperatura: ' + temp 
-        humidity =  'Humidity: ' + humi
-    except:
-        temperature = 'Non Letto'
-        humidity =  'Non Letto'
-         
+    
  
    
    print("Temperatura :" + temperature) 
